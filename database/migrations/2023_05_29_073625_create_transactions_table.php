@@ -13,11 +13,15 @@ return new class extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('portfolios', function (Blueprint $table) {
+		Schema::create('transactions', function (Blueprint $table) {
 			$table->id();
 			$table->string('name');
-			$table->string('slug');
-			$table->text('photos');
+			$table->string('subject');
+			$table->string('note');
+			$table->string('rfp');
+			$table->text('attachments');
+			$table->string('email');
+			$table->foreignId('service_id')->constrained();
 			$table->softDeletes();
 			$table->timestamps();
 		});
@@ -30,6 +34,6 @@ return new class extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('portfolios');
+		Schema::dropIfExists('transactions');
 	}
 };

@@ -17,7 +17,8 @@ return new class extends Migration
 			$table->id();
 			$table->string('name');
 			$table->string('icon');
-			$table->string('category');
+			$table->text('icon_background');
+			$table->foreignId('category_id')->constrained();
 			$table->string('detail');
 			$table->string('motto');
 			$table->softDeletes();
