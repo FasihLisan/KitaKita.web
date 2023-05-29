@@ -15,8 +15,22 @@
   <link href="{{ url('/admin/css/nucleo-svg.css') }}" rel="stylesheet" />
 
   <!-- Libraries -->
+  <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css" rel="stylesheet">
+  <link href="https://gyrocode.github.io/jquery-datatables-checkboxes/1.2.10/css/dataTables.checkboxes.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/select/1.2.1/css/select.dataTables.min.css" rel="stylesheet">
+
+  <!-- Scripts -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+  <script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
+  <script src="https://gyrocode.github.io/jquery-datatables-checkboxes/1.2.10/js/dataTables.checkboxes.min.js"></script>
+  <script src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js"></script>
+
 
   <!-- Styles -->
   <link href="{{ url('/admin/css/argon-dashboard-tailwind.min.css') }}" rel="stylesheet">
@@ -36,7 +50,7 @@
           alt="main_logo" />
         <img src="/admin/img/logo-ct.png" class="ease-nav-brand hidden h-full max-h-8 max-w-full transition-all duration-200 dark:inline"
           alt="main_logo" />
-        <span class="ease-nav-brand ml-1 font-semibold transition-all duration-200">KMI. Admin</span>
+        <span class="ease-nav-brand ml-1 font-semibold transition-all duration-200">KitaMudaIndonesia</span>
       </a>
     </div>
 
@@ -62,6 +76,16 @@
               <i class="ni ni-money-coins relative top-0 text-sm leading-normal text-orange-500"></i>
             </div>
             <span class="ease pointer-events-none ml-1 opacity-100 duration-300">Laporan Transaksi</span>
+          </a>
+        </li>
+
+        <li class="mt-0.5 w-full">
+          <a class="py-2.7 ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 text-sm transition-colors dark:text-white dark:opacity-80"
+            href="{{ route('admin.categories.index') }}">
+            <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center fill-current stroke-0 text-center xl:p-2.5">
+              <i class="ni ni-settings relative top-0 text-sm leading-normal text-emerald-500"></i>
+            </div>
+            <span class="ease pointer-events-none ml-1 opacity-100 duration-300">Kategori</span>
           </a>
         </li>
 
@@ -300,6 +324,9 @@
   <script src="{{ url('/admin/js/plugins/chartjs.min.js') }}" async></script>
   <script src="{{ url('/admin/js/plugins/perfect-scrollbar.min.js') }}" async></script>
   <script src="{{ url('/admin/js/argon-dashboard-tailwind.js') }}" async></script>
+
+  {{ $script ?? '' }}
+  {{ $modal ?? '' }}
 </body>
 
 </html>
