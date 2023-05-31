@@ -15,11 +15,13 @@
   <link href="{{ url('/admin/css/nucleo-svg.css') }}" rel="stylesheet" />
 
   <!-- Libraries -->
+  <link href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" rel="stylesheet" />
   <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
   <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
   <link href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css" rel="stylesheet">
   <link href="https://gyrocode.github.io/jquery-datatables-checkboxes/1.2.10/css/dataTables.checkboxes.css" rel="stylesheet">
   <link href="https://cdn.datatables.net/select/1.2.1/css/select.dataTables.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.9/dist/sweetalert2.min.css" rel="stylesheet">
 
   <!-- Scripts -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
@@ -30,10 +32,113 @@
   <script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
   <script src="https://gyrocode.github.io/jquery-datatables-checkboxes/1.2.10/js/dataTables.checkboxes.min.js"></script>
   <script src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js"></script>
-
+  <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+  <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.9/dist/sweetalert2.all.min.js"></script>
 
   <!-- Styles -->
   <link href="{{ url('/admin/css/argon-dashboard-tailwind.min.css') }}" rel="stylesheet">
+  <style>
+    /*Form fields*/
+    .dataTables_wrapper select,
+    .dataTables_wrapper .dataTables_filter input {
+      color: #4a5568;
+      /*text-gray-700*/
+      padding-left: 1rem;
+      /*pl-4*/
+      padding-right: 1rem;
+      /*pl-4*/
+      padding-top: .5rem;
+      /*pl-2*/
+      padding-bottom: .5rem;
+      /*pl-2*/
+      line-height: 1.25;
+      /*leading-tight*/
+      border-width: 2px;
+      /*border-2*/
+      border-radius: .25rem;
+      border-color: #edf2f7;
+      /*border-gray-200*/
+      background-color: #edf2f7;
+      /*bg-gray-200*/
+    }
+
+    .dataTables_wrapper select {
+      padding-right: 1.5rem;
+    }
+
+    /*Row Hover*/
+    table.dataTable.hover tbody tr:hover,
+    table.dataTable.display tbody tr:hover {
+      background-color: #ebf4ff;
+      /*bg-indigo-100*/
+    }
+
+    /*Pagination Buttons*/
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+      font-weight: 700;
+      /*font-bold*/
+      border-radius: .25rem;
+      /*rounded*/
+      border: 1px solid transparent;
+      /*border border-transparent*/
+    }
+
+    /*Pagination Buttons - Current selected */
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+      color: #fff !important;
+      /*text-white*/
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+      /*shadow*/
+      font-weight: 700;
+      /*font-bold*/
+      border-radius: .25rem;
+      /*rounded*/
+      background: #008652 !important;
+      /*bg-indigo-500*/
+      border: 1px solid transparent;
+      /*border border-transparent*/
+    }
+
+    /*Pagination Buttons - Hover */
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+      color: #fff !important;
+      /*text-white*/
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+      /*shadow*/
+      font-weight: 700;
+      /*font-bold*/
+      border-radius: .25rem;
+      /*rounded*/
+      background: #008652 !important;
+      /*bg-indigo-500*/
+      border: 1px solid transparent;
+      /*border border-transparent*/
+    }
+
+    /*Add padding to bottom border */
+    table.dataTable.no-footer {
+      border-bottom: 1px solid #e2e8f0;
+      /*border-b-1 border-gray-300*/
+      margin-top: 0.75em;
+      margin-bottom: 0.75em;
+    }
+
+    /*Change colour of responsive icon*/
+    table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before,
+    table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
+      background-color: #008652 !important;
+      /*bg-indigo-500*/
+    }
+
+    table.dataTable tr th.select-checkbox.selected::after {
+      content: "✔";
+      margin-top: -11px;
+      margin-left: -4px;
+      text-align: center;
+      text-shadow: rgb(176, 190, 217) 1px 1px, rgb(176, 190, 217) -1px -1px, rgb(176, 190, 217) 1px -1px, rgb(176, 190, 217) -1px 1px;
+    }
+  </style>
 </head>
 
 <body class="leading-default m-0 bg-gray-50 font-sans text-base font-normal text-slate-500 antialiased dark:bg-slate-900">
@@ -323,7 +428,6 @@
 
   <script src="{{ url('/admin/js/plugins/chartjs.min.js') }}" async></script>
   <script src="{{ url('/admin/js/plugins/perfect-scrollbar.min.js') }}" async></script>
-  <script src="{{ url('/admin/js/argon-dashboard-tailwind.js') }}" async></script>
 
   {{ $script ?? '' }}
   {{ $modal ?? '' }}
