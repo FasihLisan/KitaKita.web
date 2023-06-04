@@ -180,7 +180,7 @@
 
         <li class="mt-0.5 w-full">
           <a class="py-2.7 ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 text-sm transition-colors dark:text-white dark:opacity-80"
-            href="transaksi.html">
+            href="{{ route('admin.transactions.index') }}">
             <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
               <i class="ni ni-money-coins relative top-0 text-sm leading-normal text-orange-500"></i>
             </div>
@@ -192,7 +192,7 @@
           <a class="py-2.7 ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 text-sm transition-colors dark:text-white dark:opacity-80"
             href="{{ route('admin.categories.index') }}">
             <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center fill-current stroke-0 text-center xl:p-2.5">
-              <i class="ni ni-settings relative top-0 text-sm leading-normal text-emerald-500"></i>
+              <i class="ni ni-atom relative top-0 text-sm leading-normal text-emerald-500"></i>
             </div>
             <span class="ease pointer-events-none ml-1 opacity-100 duration-300">Kategori</span>
           </a>
@@ -210,7 +210,7 @@
 
         <li class="mt-0.5 w-full">
           <a class="py-2.7 ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 text-sm transition-colors dark:text-white dark:opacity-80"
-            href="./pages/billing.html">
+            href="#">
             <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center fill-current stroke-0 text-center xl:p-2.5">
               <i class="ni ni-app relative top-0 text-sm leading-normal text-inherit"></i>
             </div>

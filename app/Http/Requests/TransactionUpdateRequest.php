@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class ServiceRequest extends FormRequest
+class TransactionUpdateRequest extends FormRequest
 {
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -25,14 +25,7 @@ class ServiceRequest extends FormRequest
 	public function rules()
 	{
 		return [
-			'name' => 'required|string|max:255',
-			'icon' => 'required|string|max:255',
-			'icon_background' => 'required|array',
-			'category_id' => 'required|integer|exists:categories,id',
-			'detail' => 'required|string|max:255',
-			'motto' => 'required|string|max:255',
-			'images' => 'required|array',
-			'images.*' => 'required|image|mimes:png,jpg,jpeg,webp|max:2048'
+			'status' => 'required|string',
 		];
 	}
 }

@@ -11,8 +11,13 @@ class Transaction extends Model
 	use HasFactory, SoftDeletes;
 
 	protected $fillable = [
-		'name', 'subject', 'note', 'rfp', 'attachments', 'email', 'service_id'
+		'name', 'subject', 'note', 'rfp', 'attachments', 'email', 'status', 'service_id'
 	];
+
+	public function getDateAttribute()
+	{
+		return $this->created_at->format('d/m/Y');
+	}
 
 	public function service()
 	{

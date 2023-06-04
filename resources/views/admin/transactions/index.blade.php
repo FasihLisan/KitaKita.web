@@ -17,22 +17,16 @@
             name: 'name',
           },
           {
-            data: 'thumbnail',
-            name: 'thumbnail',
-            orderable: false,
-            searchable: false,
+            data: 'service.name',
+            name: 'service.name',
           },
           {
-            data: 'category.name',
-            name: 'category.name',
+            data: 'status',
+            name: 'status',
           },
           {
-            data: 'detail',
-            name: 'detail',
-          },
-          {
-            data: 'motto',
-            name: 'motto',
+            data: 'date',
+            name: 'date',
           },
           {
             data: 'action',
@@ -43,7 +37,7 @@
           }
         ],
         columnDefs: [{
-          targets: [0, 1, 2, 3, 4, 5],
+          targets: [0, 1, 2, 3, 4],
           className: "text-center",
         }],
       });
@@ -69,24 +63,18 @@
       <div class="w-full max-w-full flex-none px-3">
         <div
           class="dark:bg-slate-850 dark:shadow-dark-xl relative mb-6 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid border-transparent bg-white bg-clip-border shadow-xl">
-          <div class="border-b-solid mb-0 rounded-t-2xl border-b-0 border-b-transparent p-6 pb-5">
-            <h6 class="dark:text-white">Daftar Layanan</h6>
-            <a class="active:opacity-85 bg-x-25 mb-0 inline-block cursor-pointer rounded-lg border-0 bg-transparent bg-black px-4 py-2.5 text-center align-middle text-sm font-semibold leading-normal text-white shadow-none transition-all ease-in hover:-translate-y-px dark:text-white"
-              href="{{ route('admin.services.create') }}">
-              <i class="fas fa-plus aria-hidden= mr-2 text-white" true></i>
-              Tambah Layanan
-            </a>
+          <div class="border-b-solid mb-0 rounded-t-2xl border-b-0 border-b-transparent p-6 pb-0">
+            <h6 class="dark:text-white">Transaksi</h6>
           </div>
           <div class="flex-auto px-0 pt-0 pb-2">
             <div class="overflow-x-auto p-4">
               <table id="dataTable" class="mb-0 w-full border-collapse items-center align-top text-slate-500 dark:border-white/40">
                 <thead class="align-bottom">
                   <tr>
-                    <th>Nama</th>
-                    <th>Gambar</th>
-                    <th>Kategori</th>
-                    <th>Deskripsi</th>
-                    <th>Motto</th>
+                    <th>Nama Pemesan</th>
+                    <th>Layanan</th>
+                    <th>Status</th>
+                    <th>Tanggal</th>
                     <th>Action</th>
                   </tr>
                 </thead>

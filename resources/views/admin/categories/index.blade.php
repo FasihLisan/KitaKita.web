@@ -25,6 +25,10 @@
           searchable: false,
           width: '17%',
         }],
+        columnDefs: [{
+          targets: [0, 1, 2],
+          className: "text-center",
+        }],
       });
     </script>
   </x-slot>
