@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\TransactionController as AdminTransactionController;
+use App\Http\Controllers\Admin\PortfolioController as AdminPortfolioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,4 +31,5 @@ Route::prefix('admin')->name('admin.')->middleware([
 	Route::resource('categories', AdminCategoryController::class);
 	Route::resource('services', AdminServiceController::class);
 	Route::resource('transactions', AdminTransactionController::class);
+	Route::resource('portfolios', AdminPortfolioController::class);
 });

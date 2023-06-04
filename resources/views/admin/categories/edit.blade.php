@@ -25,7 +25,7 @@
                 </div>
               </div>
             @endif
-            <form action="{{ route('admin.categories.update', $category->id) }}" method="POST">
+            <form action="{{ route('admin.categories.update', $category->id) }}" method="POST" enctype="multipart/form-data">
               @csrf
               @method('PUT')
               <div class="-mx-3 mb-6 flex flex-wrap">
