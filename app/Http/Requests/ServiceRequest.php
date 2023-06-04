@@ -26,11 +26,13 @@ class ServiceRequest extends FormRequest
 	{
 		return [
 			'name' => 'required|string|max:255',
-			'icon' => 'required|string|max:255',
-			'icon_background' => 'required|string',
+			'icon' => 'nullable|string|max:255',
+			'icon_background' => 'nullable|array',
 			'category_id' => 'required|integer|exists:categories,id',
 			'detail' => 'required|string|max:255',
 			'motto' => 'required|string|max:255',
+			'images' => 'nullable|array',
+			'images.*' => 'nullable|image|mimes:png,jpg,jpeg,webp|max:2048'
 		];
 	}
 }

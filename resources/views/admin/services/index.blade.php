@@ -17,6 +17,12 @@
             name: 'name',
           },
           {
+            data: 'thumbnail',
+            name: 'thumbnail',
+            orderable: false,
+            searchable: false,
+          },
+          {
             data: 'category.name',
             name: 'category.name',
           },
@@ -60,7 +66,7 @@
         <div
           class="dark:bg-slate-850 dark:shadow-dark-xl relative mb-6 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid border-transparent bg-white bg-clip-border shadow-xl">
           <div class="border-b-solid mb-0 rounded-t-2xl border-b-0 border-b-transparent p-6 pb-5">
-            <h6 class="dark:text-white">Kategori Layanan</h6>
+            <h6 class="dark:text-white">Daftar Layanan</h6>
             <a class="active:opacity-85 bg-x-25 mb-0 inline-block cursor-pointer rounded-lg border-0 bg-transparent bg-black px-4 py-2.5 text-center align-middle text-sm font-semibold leading-normal text-white shadow-none transition-all ease-in hover:-translate-y-px dark:text-white"
               href="{{ route('admin.services.create') }}">
               <i class="fas fa-plus aria-hidden= mr-2 text-white" true></i>
@@ -73,6 +79,7 @@
                 <thead class="align-bottom">
                   <tr>
                     <th>Nama</th>
+                    <th>Gambar</th>
                     <th>Kategori</th>
                     <th>Deskripsi</th>
                     <th>Motto</th>

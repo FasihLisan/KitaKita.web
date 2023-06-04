@@ -53,7 +53,7 @@
             <a class="active:opacity-85 bg-x-25 mb-0 inline-block cursor-pointer rounded-lg border-0 bg-transparent bg-black px-4 py-2.5 text-center align-middle text-sm font-semibold leading-normal text-white shadow-none transition-all ease-in hover:-translate-y-px dark:text-white"
               href="{{ route('admin.categories.create') }}">
               <i class="fas fa-plus aria-hidden= mr-2 text-white" true></i>
-              Tambah Layanan
+              Tambah Kategori
             </a>
           </div>
           <div class="flex-auto px-0 pt-0 pb-2">

@@ -1,4 +1,14 @@
 <x-admin-layout>
+  <x-slot name="script">
+    <script>
+      ClassicEditor
+        .create(document.querySelector('#editor'))
+        .catch(error => {
+          console.error(error);
+        });
+    </script>
+  </x-slot>
+
   <div class="mx-auto w-full px-6 py-6">
     <!-- table 1 -->
     <div class="-mx-3 flex flex-wrap">
@@ -25,21 +35,138 @@
                 </div>
               </div>
             @endif
-            <form action="{{ route('admin.categories.update', $category->id) }}" method="POST">
+            <form action="{{ route('admin.services.update', $service->id) }}" method="POST">
               @csrf
               @method('PUT')
+
+              <!-- Input Text | Name -->
               <div class="-mx-3 mb-6 flex flex-wrap">
                 <div class="w-full px-3">
-                  <label class="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700" for="motto"> Nama Kategori : </label>
-                  <input
+                  <label class="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700" for="motto"> Nama Layanan : </label>
+                  <input type="text" name="name" value="{{ old('name') ?? $service->name }}"
                     class="mb-1 block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none"
-                    id="name" name="name" type="text" value="{{ $category->name }}"
-                    placeholder="Masukkan Nama Kategori untuk Layanan Anda">
+                    placeholder="Masukkan Nama Layanan untuk Layanan Anda">
                   <div class="mt-0 text-sm text-gray-500">
-                    Nama Kategori. Contoh: Corporation, Branding, dsb. Wajib diisi. Maksimal 255 karakter.
+                    Nama Layanan. Contoh: Corporation, Branding, dsb. Wajib diisi. Maksimal 255 karakter.
                   </div>
                 </div>
               </div>
+
+              <!-- Input Text | Icon -->
+              <div class="-mx-3 mb-6 flex flex-wrap">
+                <div class="w-full px-3">
+                  <label class="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700" for="motto"> Icon Layanan : </label>
+                  <input type="text" name="icon" value="{{ old('icon') ?? $service->icon }}"
+                    class="mb-1 block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none"
+                    required />
+                  <div class="mt-0 text-sm text-gray-500">
+                    Flutter Icon. Contoh: 0xee34, 0xf521. Opsional.
+                    <a href="https://api.flutter.dev/flutter/material/Icons-class.html" target="_blank" class="text-blue-700">refrence</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Input Number | Icon Background -->
+              <div class="-mx-3 mb-6 flex flex-wrap">
+                <div class="w-full px-3" style="width: 25%">
+                  <label class="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700" for="r"> Red : </label>
+                  <input type="number" name="r" value="{{ old('r') ?? json_decode($service->icon_background)[0] }}" min="1"
+                    max="255" placeholder="Red"
+                    class="mb-3 block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-1 px-3 leading-normal text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none"
+                    required />
+                </div>
+                <div class="w-full px-3" style="width: 25%">
+                  <label class="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700" for="r"> Green : </label>
+                  <input type="number" name="g" value="{{ old('g') ?? json_decode($service->icon_background)[1] }}" min="1"
+                    max="255" placeholder="Green"
+                    class="mb-3 block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-1 px-3 leading-normal text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none"
+                    required />
+                </div>
+                <div class="w-full px-3" style="width: 25%">
+                  <label class="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700" for="r"> Blue : </label>
+                  <input type="number" name="b" value="{{ old('b') ?? json_decode($service->icon_background)[2] }}" min="1"
+                    max="255" placeholder="Blue"
+                    class="mb-3 block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-1 px-3 leading-normal text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none"
+                    required />
+                </div>
+                <div class="w-full px-3" style="width: 25%">
+                  <label class="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700" for="r"> Alpha : </label>
+                  <input type="number" name="a" value="{{ old('a') ?? json_decode($service->icon_background)[3] }}" min="0"
+                    max="1" step=".1" placeholder="Alpha / Opacity"
+                    class="mb-3 block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-1 px-3 leading-normal text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none"
+                    required />
+                </div>
+                <div class="w-full px-3">
+                  <div class="mt-0 text-sm text-gray-500">
+                    Warna Icon. Contoh: (255,155, 100, 0.8). Opsional.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Input Select | Category -->
+              <div class="-mx-3 mb-6 flex flex-wrap">
+                <div class="w-full px-3">
+                  <label class="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700" for="Kategori"> Kategori : </label>
+                  <div class="relative">
+                    <select name="category_id"
+                      class="block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 pr-8 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none"
+                      id="status">
+                      <option value="{{ $service->category->id }}">Tidak Diubah ({{ $service->category->name }})</option>
+                      <option disabled>&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;</option>
+                      @foreach ($categories as $category)
+                        <option value="{{ $category->id }}" {{ old('category_id' == $category->id ? 'selected' : '') }}>
+                          {{ $category->name }}
+                        </option>
+                      @endforeach
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
+                    <div class="mt-1 text-sm text-gray-500">
+                      Kategori layanan. Contoh: Corporation, Branding, dsb. Wajib diisi.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Input Text | Motto -->
+              <div class="-mx-3 mb-6 flex flex-wrap">
+                <div class="w-full px-3">
+                  <label class="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700" for="motto"> Motto Layanan : </label>
+                  <input type="text" name="motto" value="{{ old('motto') ?? $service->motto }}"
+                    placeholder="Masukkan Motto singkat untuk Layanan Anda"
+                    class="mb-1 block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none"
+                    required />
+                  <div class="mt-0 text-sm text-gray-500">
+                    Motto Layanan. Contoh: Pelayanan Optimal. Wajib diisi. Maksimal 255 karakter.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Input Textarea | Detail -->
+              <div class="-mx-3 mb-6 flex flex-wrap">
+                <div class="w-full px-3">
+                  <label class="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700" for="Subjek"> Detail Layanan : </label>
+                  <div class="mt-2">
+                    <textarea id="editor" name="detail" placeholder="Masukkan Detail Untuk Layanan Anda"
+                      class="mb-3 block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none">{!! old('detail') ?? $service->detail !!}</textarea>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Input File | Images -->
+              <div class="-mx-3 mb-6 flex flex-wrap">
+                <div class="w-full px-3">
+                  <label class="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700" for="motto"> Images : </label>
+                  <input type="file" name="images[]" accept="image/png, image/jpeg, image/jpg, image/webp"
+                    placeholder="Masukkan Motto singkat untuk Layanan Anda"
+                    class="mb-1 block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none"
+                    multiple />
+                  <div class="mt-0 text-sm text-gray-500">
+                    Foto layanan. Lebih dari satu foto dapat diupload. Opsional
+                  </div>
+                </div>
+              </div>
+
+              <!-- Button | Submit -->
               <div class="-mx-5 mb-2 flex flex-wrap">
                 <button type="submit"
                   class="active:opacity-85 bg-x-25 mb-0 inline-block cursor-pointer rounded-lg border-0 bg-transparent bg-black px-4 py-2.5 text-center align-middle text-sm font-bold leading-normal text-white shadow-none transition-all ease-in hover:-translate-y-px dark:text-white">
@@ -77,8 +204,8 @@
                   class="block px-4 pt-0 pb-1 text-sm font-normal text-slate-500 transition-colors ease-in-out" target="_blank">About Us</a>
               </li>
               <li class="nav-item">
-                <a href="https://creative-tim.com/blog" class="block px-4 pt-0 pb-1 text-sm font-normal text-slate-500 transition-colors ease-in-out"
-                  target="_blank">Blog</a>
+                <a href="https://creative-tim.com/blog"
+                  class="block px-4 pt-0 pb-1 text-sm font-normal text-slate-500 transition-colors ease-in-out" target="_blank">Blog</a>
               </li>
               <li class="nav-item">
                 <a href="https://www.creative-tim.com/license"

@@ -30,9 +30,9 @@
               <div class="-mx-3 mb-6 flex flex-wrap">
                 <div class="w-full px-3">
                   <label class="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700" for="motto"> Nama Kategori : </label>
-                  <input
+                  <input value="{{ old('name') }}" name="name"
                     class="mb-1 block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none"
-                    id="name" name="name" type="text" placeholder="Masukkan Nama Kategori untuk Layanan Anda">
+                    type="text" placeholder="Masukkan Nama Kategori untuk Layanan Anda" required>
                   <div class="mt-0 text-sm text-gray-500">
                     Nama Kategori. Contoh: Corporation, Branding, dsb. Wajib diisi. Maksimal 255 karakter.
                   </div>

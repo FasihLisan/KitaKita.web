@@ -32,12 +32,12 @@
   <script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
   <script src="https://gyrocode.github.io/jquery-datatables-checkboxes/1.2.10/js/dataTables.checkboxes.min.js"></script>
   <script src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js"></script>
-  <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+  <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>
   <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.9/dist/sweetalert2.all.min.js"></script>
 
   <!-- Styles -->
-  <link href="{{ url('/admin/css/argon-dashboard-tailwind.min.css') }}" rel="stylesheet">
+  <link href="{{ url('/admin/css/argon-dashboard-tailwind.css') }}" rel="stylesheet">
   <style>
     /*Form fields*/
     .dataTables_wrapper select,
@@ -137,6 +137,10 @@
       margin-left: -4px;
       text-align: center;
       text-shadow: rgb(176, 190, 217) 1px 1px, rgb(176, 190, 217) -1px -1px, rgb(176, 190, 217) 1px -1px, rgb(176, 190, 217) -1px 1px;
+    }
+
+    .ck-editor__editable_inline {
+      min-height: 150px;
     }
   </style>
 </head>
