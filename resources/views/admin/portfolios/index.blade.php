@@ -21,6 +21,10 @@
             name: 'service.name',
           },
           {
+            data: 'year_created',
+            name: 'year_created',
+          },
+          {
             data: 'thumbnail',
             name: 'thumbnail',
             orderable: false,
@@ -35,7 +39,7 @@
           }
         ],
         columnDefs: [{
-          targets: [0, 1],
+          targets: [0, 1, 2],
           className: "text-center",
         }],
       });
@@ -74,9 +78,10 @@
               <table id="dataTable" class="mb-0 w-full border-collapse items-center align-top text-slate-500 dark:border-white/40">
                 <thead class="align-bottom">
                   <tr>
-                    <th>Nama</th>
-                    <th>Layanan</th>
-                    <th>Gambar</th>
+                    <th>Nama Portfolio</th>
+                    <th>Jenis Layanan</th>
+                    <th>Tahun Pembuatan</th>
+                    <th>Thumbnail</th>
                     <th>Action</th>
                   </tr>
                 </thead>

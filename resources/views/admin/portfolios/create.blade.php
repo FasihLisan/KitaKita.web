@@ -32,12 +32,12 @@
               <!-- Input Text | Name -->
               <div class="-mx-3 mb-6 flex flex-wrap">
                 <div class="w-full px-3">
-                  <label class="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700" for="name"> Nama Portfolio : </label>
-                  <input type="text" name="name" id="name" value="{{ old('name') }}" placeholder="Masukkan Nama Portfolio"
+                  <label class="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700" for="name"> Nama Company : </label>
+                  <input type="text" name="name" id="name" value="{{ old('name') }}" placeholder="Masukkan Nama Company"
                     class="mb-1 block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none"
                     required />
                   <div class="mt-0 text-sm text-gray-500">
-                    Nama Portfolio. Contoh: Calendar OK-BANK 2023. Wajib diisi. Maksimal 255 karakter.
+                    Nama Company. Contoh: PT Asuransi MAG (Fairfax Company). Wajib diisi. Maksimal 255 karakter.
                   </div>
                 </div>
               </div>
@@ -48,8 +48,7 @@
                   <label class="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700" for="Kategori"> Jenis Layanan : </label>
                   <div class="relative">
                     <select name="service_id"
-                      class="block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 pr-8 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none"
-                      id="status">
+                      class="block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 pr-8 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none">
                       <option value="">Masukkan Jenis Layanan Anda</option>
                       @foreach ($services as $service)
                         <option value="{{ $service->id }}" {{ old('service_id' == $service->id ? 'selected' : '') }}>
@@ -61,6 +60,20 @@
                     <div class="mt-1 text-sm text-gray-500">
                       Jenis layanan. Contoh: Annual Report, Calendar, dsb. Wajib diisi.
                     </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Input Text | Tahun Pembuatan -->
+              <div class="-mx-3 mb-6 flex flex-wrap">
+                <div class="w-full px-3">
+                  <label class="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700"> Tahun Pembuatan : </label>
+                  <input type="number" name="year_created" value="{{ old('year_created') }}" min="2020" maxlength="4"
+                    placeholder="Masukkan Tahun Pembuatan"
+                    class="mb-1 block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none"
+                    required />
+                  <div class="mt-0 text-sm text-gray-500">
+                    Tahun Pembuatan. Contoh: 2023, 2022. Wajib diisi. Maksimal 4 karakter.
                   </div>
                 </div>
               </div>

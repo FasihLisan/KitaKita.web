@@ -12,7 +12,7 @@ class Portfolio extends Model
 	use HasFactory, SoftDeletes;
 
 	protected $fillable = [
-		'name', 'slug', 'service_id', 'photos'
+		'name', 'slug', 'service_id', 'year_created', 'photos'
 	];
 
 	public function getThumbnailAttribute()

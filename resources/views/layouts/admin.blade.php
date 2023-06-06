@@ -139,6 +139,7 @@
       text-shadow: rgb(176, 190, 217) 1px 1px, rgb(176, 190, 217) -1px -1px, rgb(176, 190, 217) 1px -1px, rgb(176, 190, 217) -1px 1px;
     }
 
+    /* CKEditor */
     .ck-editor__editable_inline {
       min-height: 150px;
     }

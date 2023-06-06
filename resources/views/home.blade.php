@@ -500,167 +500,26 @@
         </div>
 
         <div class="my-10 grid gap-6 lg:grid-cols-3">
-          <div class="zoom relative overflow-hidden rounded-lg shadow-lg" style="background-position: 50%" data-mdb-ripple="true"
-            data-mdb-ripple-color="dark">
-            <img src="{{ asset('front/img/projects/projects01.jpg') }}" class="w-full align-middle transition duration-300 ease-linear" />
-            <a href="#">
-              <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed"
-                style="background-color: rgba(0, 0, 0, 0.3)">
-                <div class="flex h-full items-end justify-start">
-                  <h5 class="m-6 text-lg font-bold text-white">AMAG-Mockup-Mz Altv 2 AR</h5>
+          @foreach ($portfolios as $portfolio)
+            <div class="zoom relative overflow-hidden rounded-lg shadow-lg" style="background-position: 50%" data-mdb-ripple="true"
+              data-mdb-ripple-color="dark">
+              <img src="{{ $portfolio->thumbnail }}" class="w-full align-middle transition duration-300 ease-linear" />
+              <a href="{{ route('portfolio.detail', $portfolio->slug) }}">
+                <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed"
+                  style="background-color: rgba(0, 0, 0, 0.3)">
+                  <div class="flex h-full items-end justify-start">
+                    <h5 class="m-6 text-lg font-bold text-white">{{ $portfolio->name }}</h5>
+                  </div>
                 </div>
-              </div>
-              <div class="hover-overlay">
-                <div
-                  class="mask absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
-                  style="background-color: rgba(253, 253, 253, 0)"></div>
-              </div>
-            </a>
-          </div>
+                <div class="hover-overlay">
+                  <div style="background-color: rgba(253, 253, 253, 0)"
+                    class="mask absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
+                  </div>
+                </div>
+              </a>
+            </div>
+          @endforeach
 
-          <div class="zoom relative overflow-hidden rounded-lg shadow-lg" style="background-position: 50%" data-mdb-ripple="true"
-            data-mdb-ripple-color="dark">
-            <img src="{{ asset('front/img/projects/projects01.jpg') }}" class="w-full align-middle transition duration-300 ease-linear" />
-            <a href="projects/projects02.html">
-              <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed"
-                style="background-color: rgba(0, 0, 0, 0.3)">
-                <div class="flex h-full items-end justify-start">
-                  <h5 class="m-6 text-lg font-bold text-white">AMAG-Mockup-Mz Altv 2 AR</h5>
-                </div>
-              </div>
-              <div class="hover-overlay">
-                <div
-                  class="mask absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
-                  style="background-color: rgba(253, 253, 253, 0)"></div>
-              </div>
-            </a>
-          </div>
-
-          <div class="zoom relative overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg" style="background-position: 50%"
-            data-mdb-ripple="true" data-mdb-ripple-color="dark">
-            <img src="{{ asset('front/img/projects/projects03.jpg') }}" class="w-full align-middle transition duration-300 ease-linear" />
-            <a href="projects/projects04.html">
-              <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed"
-                style="background-color: rgba(0, 0, 0, 0.3)">
-                <div class="flex h-full items-end justify-start">
-                  <h5 class="m-6 text-lg font-bold text-white">ASEI Kal Mockup 2022</h5>
-                </div>
-              </div>
-              <div class="hover-overlay">
-                <div
-                  class="mask absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
-                  style="background-color: rgba(253, 253, 253, 0.15)"></div>
-              </div>
-            </a>
-          </div>
-
-          <div class="zoom relative overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg" style="background-position: 50%"
-            data-mdb-ripple="true" data-mdb-ripple-color="dark">
-            <img src="{{ asset('front/img/projects/projects04.jpg') }}" class="w-full align-middle transition duration-300 ease-linear" />
-            <a href="projects/projects05.html">
-              <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed"
-                style="background-color: rgba(0, 0, 0, 0.3)">
-                <div class="flex h-full items-end justify-start">
-                  <h5 class="m-6 text-lg font-bold text-white">CITRA-Mockup-Mz AR</h5>
-                </div>
-              </div>
-              <div class="hover-overlay">
-                <div
-                  class="mask absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
-                  style="background-color: rgba(253, 253, 253, 0.15)"></div>
-              </div>
-            </a>
-          </div>
-
-          <div class="zoom relative overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg" style="background-position: 50%"
-            data-mdb-ripple="true" data-mdb-ripple-color="dark">
-            <img src="{{ asset('front/img/projects/projects05.jpg') }}" class="w-full align-middle transition duration-300 ease-linear" />
-            <a href="projects/projects06.html">
-              <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed"
-                style="background-color: rgba(0, 0, 0, 0.3)">
-                <div class="flex h-full items-end justify-start">
-                  <h5 class="m-6 text-lg font-bold text-white">CITRA-Mockup-Mz SR</h5>
-                </div>
-              </div>
-              <div class="hover-overlay">
-                <div
-                  class="mask absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
-                  style="background-color: rgba(253, 253, 253, 0.15)"></div>
-              </div>
-            </a>
-          </div>
-
-          <div class="zoom relative overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg" style="background-position: 50%"
-            data-mdb-ripple="true" data-mdb-ripple-color="dark">
-            <img src="{{ asset('front/img/projects/projects06.jpg') }}" class="w-full align-middle transition duration-300 ease-linear" />
-            <a href="projects/projects07.html">
-              <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed"
-                style="background-color: rgba(0, 0, 0, 0.3)">
-                <div class="flex h-full items-end justify-start">
-                  <h5 class="m-6 text-lg font-bold text-white">Mockup Kalender-Triparta</h5>
-                </div>
-              </div>
-              <div class="hover-overlay">
-                <div
-                  class="mask absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
-                  style="background-color: rgba(253, 253, 253, 0.15)"></div>
-              </div>
-            </a>
-          </div>
-
-          <div class="zoom relative overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg" style="background-position: 50%"
-            data-mdb-ripple="true" data-mdb-ripple-color="dark">
-            <img src="{{ asset('front/img/projects/projects07.jpg') }}" class="w-full align-middle transition duration-300 ease-linear" />
-            <a href="projects/projects08.html">
-              <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed"
-                style="background-color: rgba(0, 0, 0, 0.3)">
-                <div class="flex h-full items-end justify-start">
-                  <h5 class="m-6 text-lg font-bold text-white">OKB Mockup AR - 2020</h5>
-                </div>
-              </div>
-              <div class="hover-overlay">
-                <div
-                  class="mask absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
-                  style="background-color: rgba(253, 253, 253, 0.15)"></div>
-              </div>
-            </a>
-          </div>
-
-          <div class="zoom relative overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg" style="background-position: 50%"
-            data-mdb-ripple="true" data-mdb-ripple-color="dark">
-            <img src="{{ asset('front/img/projects/projects08.jpg') }}" class="w-full align-middle transition duration-300 ease-linear" />
-            <a href="projects/projects01.html">
-              <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed"
-                style="background-color: rgba(0, 0, 0, 0.3)">
-                <div class="flex h-full items-end justify-start">
-                  <h5 class="m-6 text-lg font-bold text-white">Shopping-Bag-Mockup-PII</h5>
-                </div>
-              </div>
-              <div class="hover-overlay">
-                <div
-                  class="mask absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
-                  style="background-color: rgba(253, 253, 253, 0.15)"></div>
-              </div>
-            </a>
-          </div>
-
-          <div class="zoom relative overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg" style="background-position: 50%"
-            data-mdb-ripple="true" data-mdb-ripple-color="dark">
-            <img src="{{ asset('front/img/projects/projects09.jpg') }}" class="w-full align-middle transition duration-300 ease-linear" />
-            <a href="projects/projects09.html">
-              <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed"
-                style="background-color: rgba(0, 0, 0, 0.3)">
-                <div class="flex h-full items-end justify-start">
-                  <h5 class="m-6 text-lg font-bold text-white">SIGAP-Desk Calendar Mockup</h5>
-                </div>
-              </div>
-              <div class="hover-overlay">
-                <div
-                  class="mask absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
-                  style="background-color: rgba(253, 253, 253, 0.15)"></div>
-              </div>
-            </a>
-          </div>
         </div>
       </section>
       <!-- Section: Design Block -->
