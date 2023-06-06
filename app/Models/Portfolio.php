@@ -12,7 +12,7 @@ class Portfolio extends Model
 	use HasFactory, SoftDeletes;
 
 	protected $fillable = [
-		'name', 'slug', 'photos'
+		'name', 'slug', 'service_id', 'photos'
 	];
 
 	public function getThumbnailAttribute()
@@ -22,5 +22,10 @@ class Portfolio extends Model
 		}
 
 		return 'https://via.placeholder.com/800x600';
+	}
+
+	public function service()
+	{
+		return $this->belongsTo(Service::class);
 	}
 }

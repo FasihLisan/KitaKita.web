@@ -9,6 +9,7 @@ use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PortfolioRequest;
 use App\Http\Requests\PortfolioUpdateRequest;
+use App\Models\Service;
 
 class PortfolioController extends Controller
 {
@@ -20,7 +21,7 @@ class PortfolioController extends Controller
 	public function index()
 	{
 		if (request()->ajax()) {
-			$query = Portfolio::all();
+			$query = Portfolio::with(['service']);
 
 			return DataTables::of($query)
 				->editColumn('thumbnail', function ($portfolio) {
@@ -53,7 +54,8 @@ class PortfolioController extends Controller
 	 */
 	public function create()
 	{
-		return view('admin.portfolios.create');
+		$services = Service::all();
+		return view('admin.portfolios.create', compact('services'));
 	}
 
 	/**
@@ -102,7 +104,9 @@ class PortfolioController extends Controller
 	 */
 	public function edit(Portfolio $portfolio)
 	{
-		return view('admin.portfolios.edit', compact('portfolio'));
+		$portfolio->load('service');
+		$services = Service::all();
+		return view('admin.portfolios.edit', compact('portfolio', 'services'));
 	}
 
 	/**

@@ -17,6 +17,10 @@
             name: 'name',
           },
           {
+            data: 'service.name',
+            name: 'service.name',
+          },
+          {
             data: 'thumbnail',
             name: 'thumbnail',
             orderable: false,
@@ -71,6 +75,7 @@
                 <thead class="align-bottom">
                   <tr>
                     <th>Nama</th>
+                    <th>Layanan</th>
                     <th>Gambar</th>
                     <th>Action</th>
                   </tr>

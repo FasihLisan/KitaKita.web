@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ServiceRequest;
+use App\Http\Requests\ServiceUpdateRequest;
 use App\Models\Category;
 
 class ServiceController extends Controller
@@ -120,7 +121,7 @@ class ServiceController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(ServiceRequest $request, Service $service)
+	public function update(ServiceUpdateRequest $request, Service $service)
 	{
 		$data = $request->all();
 

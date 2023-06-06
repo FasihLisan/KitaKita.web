@@ -38,4 +38,9 @@ class Service extends Model
 	{
 		return $this->hasMany(Transaction::class);
 	}
+
+	public function portfolios()
+	{
+		return $this->hasMany(Portfolio::class);
+	}
 }

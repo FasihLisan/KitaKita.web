@@ -44,6 +44,30 @@
                 </div>
               </div>
 
+              <!-- Input Select | Category -->
+              <div class="-mx-3 mb-6 flex flex-wrap">
+                <div class="w-full px-3">
+                  <label class="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700" for="Kategori"> Jenis Layanan : </label>
+                  <div class="relative">
+                    <select name="service_id"
+                      class="block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 pr-8 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none"
+                      id="status">
+                      <option value="{{ $portfolio->service->id }}">Tidak Diubah ({{ $portfolio->service->name }})</option>
+                      <option disabled>&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;</option>
+                      @foreach ($services as $service)
+                        <option value="{{ $service->id }}" {{ old('service_id' == $service->id ? 'selected' : '') }}>
+                          {{ $service->name }}
+                        </option>
+                      @endforeach
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
+                    <div class="mt-1 text-sm text-gray-500">
+                      Jenis layanan. Contoh: Annual Report, Calendar, dsb. Wajib diisi.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <!-- Input File | Photos -->
               <div class="-mx-3 mb-6 flex flex-wrap">
                 <div class="w-full px-3">
