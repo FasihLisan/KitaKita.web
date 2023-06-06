@@ -508,7 +508,7 @@
                 <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed"
                   style="background-color: rgba(0, 0, 0, 0.3)">
                   <div class="flex h-full items-end justify-start">
-                    <h5 class="m-6 text-lg font-bold text-white">{{ $portfolio->name }}</h5>
+                    <h5 class="m-6 text-lg font-bold text-white">{{ $portfolio->service->name }} {{ $portfolio->year_created }}</h5>
                   </div>
                 </div>
                 <div class="hover-overlay">
