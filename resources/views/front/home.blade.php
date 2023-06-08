@@ -1,92 +1,4 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kita Muda Indonesia</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Libraries -->
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
-  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" type="module"></script>
-  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" nomodule defer></script>
-
-  <!-- Styles -->
-  <style>
-    /*primary color*/
-    .bg-cream {
-      background-color: #fff2e1;
-    }
-
-    /*font*/
-    body {
-      font-family: "Poppins", sans-serif;
-    }
-
-    .bg-yellow-500 {
-      background-color: #e4b900;
-    }
-
-    .text-yellow-500 {
-      color: #e4b900;
-    }
-
-    .floating {
-      animation-name: floating;
-      animation-duration: 3s;
-      animation-iteration-count: infinite;
-      animation-timing-function: ease-in-out;
-    }
-
-    @keyframes floating {
-      0% {
-        transform: translate(0, 0px);
-      }
-
-      50% {
-        transform: translate(0, 8px);
-      }
-
-      100% {
-        transform: translate(0, -0px);
-      }
-    }
-
-    .floating-4 {
-      animation-name: floating;
-      animation-duration: 4s;
-      animation-iteration-count: infinite;
-      animation-timing-function: ease-in-out;
-    }
-
-    @keyframes floating-4 {
-      0% {
-        transform: translate(0, 0px);
-      }
-
-      50% {
-        transform: translate(0, 8px);
-      }
-
-      100% {
-        transform: translate(0, -0px);
-      }
-    }
-
-    .text-darken {
-      color: #1e1e1e;
-    }
-  </style>
-</head>
-
-<body class="antialiased">
+<x-front-layout>
   <!-- navbar -->
   <div x-data="{ open: false }" class="bg-cream w-full text-gray-700">
     <div class="mx-auto flex max-w-screen-xl flex-col px-8 md:flex-row md:items-center md:justify-between">
@@ -118,7 +30,7 @@
         <div @click.away="open = false" class="relative" x-data="{ open: false }">
           <button @click="open = !open"
             class="focus:shadow-outline mt-2 rounded-lg bg-transparent px-4 py-2 text-sm hover:text-gray-900 focus:outline-none md:mt-8 md:ml-4">
-            <span>Proyek</span>
+            <span>Portfolio</span>
             <svg fill="currentColor" viewBox="0 0 20 20" :class="{ 'rotate-180': open, 'rotate-0': !open }"
               class="mt-1 ml-1 inline h-4 w-4 transform transition-transform duration-200 md:-mt-1">
               <path fill-rule="evenodd"
@@ -160,9 +72,10 @@
           Perusahaan Anda Menjadi Lebih <br />Profesional</p>
         <div data-aos="fade-up" data-aos-once="true" data-aos-delay="700"
           class="w-full items-center justify-center md:flex md:space-x-5 lg:justify-start">
-          <a href="#"
-            class="text-darken transform rounded-full bg-yellow-200 py-4 px-9 text-xl font-bold transition duration-300 ease-in-out hover:scale-110 focus:outline-none lg:mx-0">Lihat
-            Portofolio Kami</a>
+          <a href="{{ route('front.service') }}"
+            class="text-darken transform rounded-full bg-yellow-200 py-4 px-9 text-xl font-bold transition duration-300 ease-in-out hover:scale-110 focus:outline-none lg:mx-0">
+            Lihat Layanan Kami
+          </a>
         </div><br>
 
       </div>
@@ -298,7 +211,7 @@
           <div class="absolute bottom-0 left-0 right-0 h-full w-full rounded-2xl bg-black bg-opacity-20">
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform">
               <h1 class="mb-3 text-center text-sm font-bold uppercase text-white lg:text-xl">CORPORATION</h1>
-              <a href="pages/corp.html"
+              <a href="{{ route('front.service') }}"
                 class="lg:text-md w-full transform rounded-full border px-6 py-3 text-xs font-medium text-white transition duration-300 ease-in-out hover:scale-110 focus:outline-none">Lihat
                 Semua Layanan</a>
             </div>
@@ -309,7 +222,7 @@
           <div class="absolute bottom-0 left-0 right-0 h-full w-full rounded-2xl bg-black bg-opacity-20">
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform">
               <h1 class="mb-3 text-center text-sm font-bold uppercase text-white lg:text-xl">REPORT MANAGEMENT</h1>
-              <a href="pages/report.html"
+              <a href="{{ route('front.service') }}"
                 class="lg:text-md w-full transform rounded-full border px-6 py-3 text-xs font-medium text-white transition duration-300 ease-in-out hover:scale-110 focus:outline-none">Lihat
                 Semua Layanan</a>
             </div>
@@ -320,7 +233,7 @@
           <div class="absolute bottom-0 left-0 right-0 h-full w-full rounded-2xl bg-black bg-opacity-20">
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform">
               <h1 class="mb-3 text-center text-sm font-bold uppercase text-white lg:text-xl">BRANDING SERVICE</h1>
-              <a href="pages/brand.html"
+              <a href="{{ route('front.service') }}"
                 class="lg:text-md w-full transform rounded-full border px-6 py-3 text-xs font-medium text-white transition duration-300 ease-in-out hover:scale-110 focus:outline-none">Lihat
                 Semua Layanan</a>
             </div>
@@ -420,7 +333,7 @@
         </h1>
         <p class="my-5 text-gray-500 lg:pr-20">Dengan 10 Layanan Kami akan membantu anda untuk mewujudkan mimpi anda
           untuk menciptakan sebuah perusahaan yang berkualitas dan lebih berintegritas.</p>
-        <a href="service.html"
+        <a href="{{ route('front.service') }}"
           class="my-4 transform rounded-full border border-yellow-500 px-5 py-3 font-medium text-yellow-500 transition duration-300 ease-in-out hover:scale-110 focus:outline-none">Lihat
           Semua Layanan</a>
       </div>
@@ -436,21 +349,21 @@
         <h1 class="text-darken text-2xl font-semibold lg:pr-40">Berikan kesan dan pesan anda untuk kami</h1><br>
         <form action="#" class="space-y-8">
           <div>
-            <label for="email" class="mb-1 block text-sm font-medium text-gray-900 dark:text-gray-300">Email Anda :</label>
+            <label for="email" class="light:text-gray-300 mb-1 block text-sm font-medium text-gray-900">Email Anda :</label>
             <input type="email" id="email"
-              class="focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+              class="focus:ring-primary-500 focus:border-primary-500 light:focus:ring-primary-500 light:focus:border-primary-500 light:shadow-sm-light light:border-gray-600 light:bg-gray-700 light:text-white light:placeholder-gray-400 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm"
               placeholder="youremail@perusahaan.ac.id" required>
           </div>
           <div>
-            <label for="subject" class="mb-1 block text-sm font-medium text-gray-900 dark:text-gray-300">Nama Perusahaan :</label>
+            <label for="subject" class="light:text-gray-300 mb-1 block text-sm font-medium text-gray-900">Nama Perusahaan :</label>
             <input type="text" id="subject"
-              class="focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 shadow-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+              class="focus:ring-primary-500 focus:border-primary-500 light:focus:ring-primary-500 light:focus:border-primary-500 light:shadow-sm-light light:border-gray-600 light:bg-gray-700 light:text-white light:placeholder-gray-400 block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 shadow-sm"
               placeholder="Masukkan Nama Perusahaan Anda" required>
           </div>
           <div class="sm:col-span-2">
-            <label for="message" class="mb-1 block text-sm font-medium text-gray-900 dark:text-gray-400">Kesan dan Pesan Anda :</label>
+            <label for="message" class="light:text-gray-400 mb-1 block text-sm font-medium text-gray-900">Kesan dan Pesan Anda :</label>
             <textarea id="message" rows="6"
-              class="focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+              class="focus:ring-primary-500 focus:border-primary-500 light:focus:ring-primary-500 light:focus:border-primary-500 light:border-gray-600 light:bg-gray-700 light:text-white light:placeholder-gray-400 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm"
               placeholder="Masukkan Kesan dan Pesan Anda ..."></textarea>
           </div>
           <input type="submit"
@@ -477,7 +390,7 @@
         </h1>
         <p class="my-5 text-gray-500 lg:pr-20">Kami selain memberikan pelayanan dalam bentuk website, kami juga
           memberikan pelayanan berupa aplikasi yang dapat diunduh pada gawai anda.</p><br>
-        <a href="service.html"
+        <a href="#"
           class="my-4 mt-5 transform rounded-full border border-yellow-500 px-5 py-3 font-medium text-yellow-500 transition duration-300 ease-in-out hover:scale-110 focus:outline-none">Unduh
           Aplikasi Android Kami</a>
       </div>
@@ -504,7 +417,7 @@
             <div class="zoom relative overflow-hidden rounded-lg shadow-lg" style="background-position: 50%" data-mdb-ripple="true"
               data-mdb-ripple-color="dark">
               <img src="{{ $portfolio->thumbnail }}" class="w-full align-middle transition duration-300 ease-linear" />
-              <a href="{{ route('portfolio.detail', $portfolio->slug) }}">
+              <a href="{{ route('front.portfolio.detail', $portfolio->slug) }}">
                 <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed"
                   style="background-color: rgba(0, 0, 0, 0.3)">
                   <div class="flex h-full items-end justify-start">
@@ -568,12 +481,4 @@
       <p class="text-sm text-gray-600">© Copyright 2023 By. Kita Muda Indonesia. All rights reserved.</p>
     </div>
   </div>
-
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
-</body>
-
-</html>
+</x-front-layout>

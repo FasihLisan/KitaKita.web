@@ -1,81 +1,61 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kita Muda Indonesia</title>
-  <link rel="stylesheet" href="https://cdn.tailgrids.com/tailgrids-fallback.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Tailwind -->
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-  <!-- Alpine -->
-  <script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
-  <script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer></script>
-  <!-- AOS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <!-- Custom style -->
-  <link rel="stylesheet" href="css/skilline.css" />
-  <!-- Poppins font -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-
-<body class="antialiased">
-  <div class="bg-white">
-    <div class="pt-6">
-      <nav aria-label="Breadcrumb">
-        <ol role="list" class="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-          <li>
-            <div class="flex items-center">
-              <a href="{{ route('home') }}" class="mr-2 text-sm font-medium text-gray-900">Home</a>
-              <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" class="h-5 w-4 text-gray-300">
-                <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
-              </svg>
-            </div>
-          </li>
-
-          <li class="text-sm">
-            <a href="#" aria-current="page" class="font-medium text-gray-500 hover:text-gray-600">
-              {{ $portfolio->name }} {{ $portfolio->service->name }} {{ $portfolio->year_created }}
-            </a>
-          </li>
-        </ol>
-      </nav>
-
-      <!-- component -->
-      <section class="body-font overflow-hidden bg-white text-gray-700">
-        <div class="container mx-auto px-5 py-24">
-          <div class="mx-auto flex flex-wrap lg:w-4/5">
-            <img alt="ecommerce" class="w-full rounded border border-gray-200 object-cover object-center lg:w-1/2" src="{{ $portfolio->thumbnail }}">
-            <div class="mt-6 w-full lg:mt-0 lg:w-1/2 lg:py-6 lg:pl-10">
-              <h2 class="title-font text-sm tracking-widest text-gray-500">{{ $portfolio->service->category->name }} Category</h2>
-              <h1 class="title-font mb-1 text-3xl font-medium text-gray-900">
-                {{ $portfolio->name }} {{ $portfolio->service->name }} {{ $portfolio->year_created }}
-              </h1>
-              <br>
-              <p class="leading-relaxed">
-                <span class="text-md text-gray-400">Client :</span> {{ $portfolio->name }}
-              </p>
-              <p class="leading-relaxed">
-                <span class="text-md text-gray-400">Tipe :</span> {{ $portfolio->service->name }}
-              </p>
-              <p class="leading-relaxed">
-                <span class="text-md text-gray-400">Tahun Pembuatan :</span> {{ $portfolio->year_created }}
-              </p>
-            </div>
+<x-front-layout>
+  <!-- ====== Services Section Start -->
+  <section style="padding-left: 5%; padding-right: 5%;" class="pt-10 pb-12 lg:pt-[15px] lg:pb-[90px]">
+    <a href="{{ route('front.home') }}" class="font-bold">&laquo; Kembali</a>
+    <div class="container">
+      <div class="-mx-4 flex flex-wrap">
+        <div class="w-full px-4">
+          <div class="mx-auto mb-12 max-w-[510px] text-center lg:mb-20">
+            <span class="mb-2 block text-lg font-semibold text-yellow-500">
+              Layanan Kami
+            </span>
+            <h2 class="text-dar mb-4 text-3xl font-bold sm:text-4xl md:text-[40px]">
+              Semua Layanan
+            </h2>
+            <p class="text-body-color text-base">
+              Kami Akan Memberikan Layanan Terbaik Untuk Anda
+            </p>
           </div>
         </div>
+      </div>
+
+      <section class="light:bg-gray-900 bg-white">
+        @foreach ($categories as $category)
+          <div class="mx-auto max-w-screen-xl py-8 px-4 sm:py-16 lg:px-6">
+            <div class="mb-8 max-w-screen-md lg:mb-16">
+              <h2 class="light:text-white mb-4 text-4xl font-extrabold tracking-tight text-gray-900">
+                {{ $category->name }}
+              </h2>
+            </div>
+            <div class="space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0 lg:grid-cols-3">
+              @foreach ($category->services as $service)
+                <div>
+                  <div class="mb-8 rounded-[20px] bg-white p-10 shadow-md hover:shadow-lg md:px-7 xl:px-10">
+                    <div class="mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-yellow-200">
+                      <img src="{{ $service->thumbnail }}" alt="thumbnail" style="max-width: 40px;">
+                    </div>
+                    <h4 class="text-dark mb-3 text-xl font-semibold">
+                      {{ $service->name }}
+                    </h4>
+                    <p class="text-body-color">
+                      {{ $service->motto }}
+                    </p><br>
+                    <a href="#" class="underline">Lihat Detail</a>
+                  </div>
+                </div>
+              @endforeach
+            </div>
+          </div>
+        @endforeach
       </section>
     </div>
-  </div>
-
-
+  </section>
+  <!-- ====== Services Section End -->
   <div class="mx-auto px-4 pt-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
     <div class="row-gap-6 mb-8 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
       <div class="sm:col-span-2">
         <a href="/" aria-label="Go home" title="Company" class="inline-flex items-center">
-          <img src="img/logo.png" alt="" style="max-width: 120px;">
+          <img src="{{ asset('front/img/logo.png') }}" alt="" style="max-width: 120px;">
         </a>
         <div class="mt-6 lg:max-w-sm">
           <p class="text-sm text-gray-800">
@@ -137,11 +117,4 @@
       </p>
     </div>
   </div>
-  <!-- AOS init -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
-</body>
-
-</html>
+</x-front-layout>

@@ -12,7 +12,7 @@ class HomeController extends Controller
 	{
 		$portfolios = Portfolio::with(['service'])->latest()->take(6)->get();
 
-		return view('home', [
+		return view('front.home', [
 			'portfolios' => $portfolios
 		]);
 	}

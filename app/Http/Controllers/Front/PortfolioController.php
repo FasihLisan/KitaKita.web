@@ -12,6 +12,6 @@ class PortfolioController extends Controller
 	{
 		$portfolio = Portfolio::with(['service'])->whereSlug($slug)->firstOrFail();
 
-		return view('portfolio', compact('portfolio'));
+		return view('front.portfolio', compact('portfolio'));
 	}
 }
