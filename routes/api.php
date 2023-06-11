@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\ServiceController;
+use App\Http\Controllers\Api\TransactionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +18,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::middleware(['api_key'])->group(function () {
+    Route::resource('services', ServiceController::class);
+    Route::resource('transaction', TransactionController::class);
+});
+
+
+Route::get('files/{filename}', [ServiceController::class, 'getImages']);
+
+Route::get('launch-artisan', function () {
+    Artisan::call('storage:link');
 });
