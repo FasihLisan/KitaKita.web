@@ -45,7 +45,7 @@ class ServiceController extends Controller
                 }
 
                 $response[$a]['services'][$b]['name'] = $servics[$b]->services_name;
-                $response[$a]['services'][$b]['description'] = $servics[$b]->detail;
+                $response[$a]['services'][$b]['description'] = $servics[$b]->motto;
                 $response[$a]['services'][$b]['icon'] = $servics[$b]->icon;
 
 
